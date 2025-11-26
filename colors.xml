@@ -1,0 +1,8 @@
+<!-- colors.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ios_white">#FFFFFF</color>
+    <color name="ios_black">#000000</color>
+    <color name="ios_gray">#F2F2F7</color>
+    <color name="ios_blue">#007AFF</color>
+</resources>
