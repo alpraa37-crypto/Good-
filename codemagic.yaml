@@ -2,8 +2,8 @@ workflows:
   android-launcher:
     name: iOS Launcher Android
     environment:
-      android:
-        sdk: "34"
+      groups:
+        - keystore_credentials
     scripts:
       - name: Fix Gradle Permissions
         script: |
@@ -17,4 +17,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com
+          - developer@example.com
