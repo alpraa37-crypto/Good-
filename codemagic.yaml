@@ -1,9 +1,6 @@
 workflows:
   android-launcher:
     name: iOS Launcher Android
-    environment:
-      android:
-        sdk: 34
     scripts:
       - name: Install Gradle
         script: |
