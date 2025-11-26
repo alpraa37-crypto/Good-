@@ -1,0 +1,17 @@
+workflows:
+  android-launcher:
+    name: iOS Launcher Android
+    environment:
+      android:
+        sdk: 34
+    scripts:
+      - name: Install Gradle
+        script: |
+          wget https://services.gradle.org/distributions/gradle-8.0-bin.zip
+          unzip gradle-8.0-bin.zip
+          export PATH=$PWD/gradle-8.0/bin:$PATH
+      - name: Build with Gradle
+        script: |
+          gradle assembleDebug --stacktrace
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
