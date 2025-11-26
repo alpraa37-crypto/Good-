@@ -1,0 +1,22 @@
+# codemagic.yaml
+workflows:
+  android-launcher:
+    name: iOS Launcher Android
+    environment:
+      groups:
+        - keystore_credentials
+      vars:
+        PACKAGE_NAME: "com.example.ioslauncher"
+    scripts:
+      - name: Build Android APK
+        script: |
+          ./gradlew assembleRelease
+      - name: Sign APK
+        script: |
+          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $CM_KEYSTORE_PATH -storepass $CM_KEYSTORE_PASSWORD -keypass $CM_KEY_PASSWORD app/build/outputs/apk/release/app-release-unsigned.apk $CM_KEY_ALIAS
+    artifacts:
+      - app/build/outputs/apk/release/app-release-unsigned.apk
+    publishing:
+      email:
+        recipients:
+          - developer@example.com
